@@ -26,6 +26,7 @@ class opsview_server::package {
   include opsview_server::repo
 
   package { 'opsview':
+    before  => Exec['yum-update'],
     ensure  => latest,
     require => File['/etc/yum.repos.d/opsview.repo']
   }

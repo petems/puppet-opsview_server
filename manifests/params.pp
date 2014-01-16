@@ -35,6 +35,9 @@ class opsview_server::params {
 
   case $::osfamily {
     'RedHat': {
+      exec { 'yum-update':
+        command => 'yum update -y',
+      }
     }
     default: {
       fail("The ${module_name} module is not supported on an ${::osfamily} based system.")
