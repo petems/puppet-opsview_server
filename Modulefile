@@ -9,3 +9,4 @@ project_page 'http://github.com/petems/puppet-opsview_server'
 
 ## Add dependencies, if any:
 dependency 'puppetlabs/stdlib', '>= 0.1.6'
+dependency 'stahnma/puppet-module-epel', '>= 0.0.6'

@@ -19,12 +19,21 @@
 #
 class opsview_server::params {
 
+  Exec {
+    path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+    logoutput=>on_failure,
+  }
+
   if ! defined(Package['mysql']) {
     package { 'mysql': }
   }
 
   if ! defined(Package['mysql-server']) {
     package { 'mysql-server': }
+  }
+
+  if ! defined(Package['libmcrypt']) {
+    package { 'libmcrypt': }
   }
 
   if ! defined(Service['mysqld']) {
@@ -35,6 +44,8 @@ class opsview_server::params {
 
   case $::osfamily {
     'RedHat': {
+      include epel
+
       exec { 'yum-update':
         command => 'yum update -y',
       }
