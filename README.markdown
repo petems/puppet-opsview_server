@@ -1,4 +1,5 @@
 #opsview_server
+[![Build Status](https://travis-ci.org/petems/puppet-opsview_server.png?branch=master)](https://travis-ci.org/petems/puppet-opsview_server)
 
 ##Overview
 
