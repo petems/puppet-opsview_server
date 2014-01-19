@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'opsview_server', :type => :class  do
+describe 'opsview_server::package', :type => :class  do
 
   ['RedHat'].each do |system|
     if system == 'Gentoo (Facter < 1.7)'
@@ -9,9 +9,7 @@ describe 'opsview_server', :type => :class  do
       let(:facts) {{ :osfamily => system }}
     end
 
-    it { should contain_class('opsview_server::config') }
-    it { should contain_class('opsview_server::package') }
-    it { should contain_class('opsview_server::service') }
+    it { should contain_package('opsview') }
 
   end
 

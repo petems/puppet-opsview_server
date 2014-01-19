@@ -1,15 +1,10 @@
 require 'spec_helper_system'
 
 describe 'basic tests:' do
-  # Using puppet_apply as a subject
-  context puppet_apply 'notice("foo")' do
-    its(:stdout) { should =~ /foo/ }
-    its(:stderr) { should be_empty }
-    its(:exit_code) { should be_zero }
-  end
-
-  # Using puppet_apply as a helper
   it 'my class should work with no errors' do
+    shell('puppet module install puppetlabs/stdlib --version ">= 0.1.6"')
+    shell('puppet module install stahnma/epel --version ">= 0.0.6"')
+
     pp = <<-EOS
       class { 'opsview_server': }
     EOS
