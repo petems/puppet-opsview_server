@@ -48,6 +48,7 @@ class opsview_server::params {
 
       exec { 'yum-update':
         command => 'yum update -y',
+        timeout => '1800',
       }
     }
     default: {

@@ -9,11 +9,9 @@ describe 'basic tests:' do
       class { 'opsview_server': }
     EOS
 
-    # Run it twice and test for idempotency
-    puppet_apply(pp) do |r|
+    puppet_apply(:code => pp, :debug => true) do |r|
       r.exit_code.should_not == 1
-      r.refresh
-      r.exit_code.should be_zero
     end
+
   end
 end
