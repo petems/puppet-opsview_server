@@ -28,8 +28,9 @@ class opsview_server::yum_repo {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    notify  => Exec['yum-update']
   }
+
+  File['/etc/yum.repos.d/opsview.repo'] -> Exec['yum-update']
 
 }
 

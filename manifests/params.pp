@@ -19,11 +19,6 @@
 #
 class opsview_server::params {
 
-  Exec {
-    path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
-    logoutput=>on_failure,
-  }
-
   if ! defined(Package['mysql']) {
     package { 'mysql': }
   }
