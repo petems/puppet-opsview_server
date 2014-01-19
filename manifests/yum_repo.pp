@@ -1,6 +1,6 @@
 # == Node: opsview
 #
-#  Puppet setup for the opsview monitoring tool
+# Yum repo for opsview
 #
 # === Parameters
 #
@@ -11,17 +11,17 @@
 #
 # === Examples
 #
-#  na
+#  include opsview_server::yum_repo
 #
 # === Authors
 #
-# Peter Souterrequire 'rest_client'
+# Peter Souter
 #
 # === Copyright
 #
 #
 #
-class opsview_server::repo {
+class opsview_server::yum_repo {
 
   file { '/etc/yum.repos.d/opsview.repo':
     source  => 'puppet:///modules/opsview_server/opsview.repo',

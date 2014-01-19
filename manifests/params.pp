@@ -45,11 +45,13 @@ class opsview_server::params {
   case $::osfamily {
     'RedHat': {
       include epel
+      include opsview_server::repo
 
       exec { 'yum-update':
         command => 'yum update -y',
         timeout => '1800',
       }
+
     }
     default: {
       fail("The ${module_name} module is not supported on an ${::osfamily} based system.")
