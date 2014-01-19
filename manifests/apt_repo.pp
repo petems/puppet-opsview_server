@@ -21,7 +21,7 @@
 #
 #
 #
-class opsview_server::yum_repo {
+class opsview_server::apt_repo {
 
   apt::source { 'opsview':
     location          => "http://downloads.opsview.com/opsview-core/latest/apt/dists/$::lsbdistcodename/",
