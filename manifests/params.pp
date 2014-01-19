@@ -45,7 +45,7 @@ class opsview_server::params {
   case $::osfamily {
     'RedHat': {
       include epel
-      include opsview_server::repo
+      include opsview_server::yum_repo
 
       exec { 'yum-update':
         command => 'yum update -y',
