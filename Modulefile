@@ -1,5 +1,5 @@
 name    'petems-opsview_server'
-version '0.0.2'
+version '0.0.3'
 source 'git://github.com/petems/puppet-opsview_server'
 author 'Peter Souter'
 license 'Apache Version 2.0'
