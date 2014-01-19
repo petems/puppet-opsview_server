@@ -19,10 +19,6 @@
 #
 class opsview_server::params {
 
-  if ! defined(Package['mysql']) {
-    package { 'mysql': }
-  }
-
   if ! defined(Package['mysql-server']) {
     package { 'mysql-server': }
   }
@@ -42,6 +38,10 @@ class opsview_server::params {
         package { 'libmcrypt': }
       }
 
+      if ! defined(Package['mysql']) {
+        package { 'mysql': }
+      }
+
       exec { 'yum-update':
         command => 'yum update -y',
         timeout => '1800',
@@ -50,6 +50,10 @@ class opsview_server::params {
     }
     'Debian': {
       include opsview_server::apt_repo
+
+      if ! defined(Package['mysql-client']) {
+        package { 'mysql-client': }
+      }
 
     }
     default: {
