@@ -27,10 +27,6 @@ class opsview_server::params {
     package { 'mysql-server': }
   }
 
-  if ! defined(Package['libmcrypt']) {
-    package { 'libmcrypt': }
-  }
-
   if ! defined(Service['mysqld']) {
     service {'mysqld':
       ensure => running,
@@ -42,10 +38,18 @@ class opsview_server::params {
       include epel
       include opsview_server::yum_repo
 
+      if ! defined(Package['libmcrypt']) {
+        package { 'libmcrypt': }
+      }
+
       exec { 'yum-update':
         command => 'yum update -y',
         timeout => '1800',
       }
+
+    }
+    'Debian': {
+      include opsview_server::apt_repo
 
     }
     default: {

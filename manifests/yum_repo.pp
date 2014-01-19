@@ -1,4 +1,4 @@
-# == Node: opsview
+# == Node: opsview::yum_repo
 #
 # Yum repo for opsview
 #
