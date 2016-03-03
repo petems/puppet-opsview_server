@@ -1,3 +1,6 @@
+# NOTE:
+## This module was created for the automation of the old opsview-core package, which no longer exists. I've asked Opsview to get a token for the new opsview-atom package, and I'll update this module with the new installation instruction if that comes in.
+
 #opsview_server
 [![Build Status](https://travis-ci.org/petems/puppet-opsview_server.png?branch=master)](https://travis-ci.org/petems/puppet-opsview_server)
 
